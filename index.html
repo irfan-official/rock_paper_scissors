@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="body">
+  <text class="text">PRO Version</text>
+  <button class="button rock" id="myButton_1" title="" onclick=" response++; rock++; f1(); f2();">
+    rock
+  </button>
+
+  <button class="button paper" id="myButton_2" onclick=" response++; paper++;f1();f2();">
+    paper
+  </button>
+
+  <button class="button scissors" id="myButton_3" onclick=" response++; scissors++;f1();f2();">
+    scissors
+  </button>
+
+  <script>
+
+    let response = 0;
+    let rock = 0;
+    let paper = 0;
+    let scissors = 0;
+    let hand;
+    var myButton_1 = document.getElementById("myButton_1");
+    var myButton_2 = document.getElementById("myButton_2");
+    var myButton_3 = document.getElementById("myButton_3");
+
+    let take = Math.round(Math.random() * 10);
+    console.log(take);
+    b_title(take);
+
+    function f1() {
+
+      if (0 <= take && take <= 3) {
+
+
+        hand = 'Computer chose Rock';
+        if (rock === 1) {
+          alert('Draw \n' + hand);
+        }
+        else if (paper === 1) {
+          alert('You win \n' + hand);
+        }
+        else {
+          alert('You lose \n' + hand);
+        }
+        return;
+      }
+
+      if (4 <= take && take <= 7) {
+
+        hand = 'Computer chose paper';
+
+        if (rock === 1) {
+
+          alert('You lose \n' + hand);
+        }
+        else if (paper === 1) {
+          alert('Draw \n' + hand);
+        }
+        else {
+          alert('You win \n' + hand);
+        }
+        return;
+
+      }
+
+      if (7 <= take && take <= 10) {
+        hand = 'Computer chose scissors';
+        if (rock === 1) {
+          alert('You win \n' + hand);
+        }
+        else if (paper === 1) {
+          alert('You lose \n' + hand);
+        }
+        else {
+          alert('Draw \n' + hand);
+        }
+        return;
+      }
+
+    }
+
+
+    function f2() {
+      response = 0;
+      rock = 0;
+      paper = 0;
+      scissors = 0;
+
+      take = Math.round(Math.random() * 10);
+      console.log(take);
+      b_title(take);
+
+    }
+
+    function b_title(take) {
+      if (0 <= take && take <= 3) {
+        myButton_1.title = "Draw";
+        myButton_2.title = "Win";
+        myButton_3.title = "Lose";
+      }
+      if (4 <= take && take <= 7) {
+        myButton_1.title = "Lose";
+        myButton_2.title = "Draw";
+        myButton_3.title = "Win";
+      }
+      if (7 <= take && take <= 10) {
+        myButton_1.title = "Win";
+        myButton_2.title = "Lose";
+        myButton_3.title = "Draw";
+      }
+
+    }
+  </script>
+</body>
+</html>
